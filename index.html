@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Divine Barbershop — Orlando, FL</title>
+<style>
+  :root{
+    --ink:#0c0a08; --coal:#161210; --panel:#1e1915; --line:#33291f;
+    --gold:#d4a437; --gold2:#f2cd6b; --cream:#f5ecdc; --mut:#a99c86;
+    --red:#8c2f1b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--cream);font-family:Georgia,'Times New Roman',serif;padding-bottom:92px}
+  .sans{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;background:
+    radial-gradient(120% 90% at 50% -10%, #3a2c17 0%, transparent 55%),
+    radial-gradient(90% 70% at 85% 110%, #4a1e10 0%, transparent 55%),
+    linear-gradient(160deg,#221a12 0%, #100d0a 60%, #0c0a08 100%);
+    padding:56px 22px 40px;text-align:center;border-bottom:3px solid var(--gold)}
+  .hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 26px,rgba(212,164,55,.045) 26px 28px);pointer-events:none}
+  .crest{width:92px;height:92px;margin:0 auto 14px;display:block;filter:drop-shadow(0 6px 18px rgba(212,164,55,.35))}
+  .kicker{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:.34em;font-size:11px;color:var(--gold2);text-transform:uppercase}
+  h1{font-size:44px;line-height:1.02;letter-spacing:.02em;margin:10px 0 4px;text-transform:uppercase}
+  h1 .thin{display:block;font-size:19px;letter-spacing:.52em;color:var(--gold);font-weight:400;margin-top:6px}
+  .tag{font-style:italic;color:var(--mut);font-size:16px;margin-top:10px}
+  .badge{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:linear-gradient(180deg,#2a2115,#1b150e);
+    border:1px solid var(--gold);border-radius:999px;padding:9px 18px;font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:14px}
+  .badge b{color:var(--gold2)}
+  .stars{color:var(--gold);letter-spacing:2px;font-size:15px}
+  .cta-row{display:flex;gap:10px;justify-content:center;margin-top:24px;flex-wrap:wrap;position:relative;z-index:2}
+  .btn{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-weight:700;font-size:15px;border-radius:10px;padding:14px 22px;border:1px solid var(--gold);cursor:pointer;text-decoration:none}
+  .btn-gold{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#221806;box-shadow:0 8px 22px rgba(212,164,55,.30)}
+  .btn-ghost{background:transparent;color:var(--gold2)}
+  .demo-note{margin-top:16px;font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:11px;color:#6f6455;letter-spacing:.08em;text-transform:uppercase}
+
+  /* ---------- PANELS ---------- */
+  .panel{display:none;padding:26px 20px 10px;animation:fade .25s ease}
+  .panel.on{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2{font-size:26px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+  h2 .g{color:var(--gold)}
+  .sub{color:var(--mut);font-size:14px;font-family:-apple-system,'Segoe UI',Roboto,sans-serif;margin-bottom:18px;line-height:1.5}
+  .card{background:linear-gradient(180deg,var(--panel),var(--coal));border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+
+  /* services */
+  .svc{display:flex;gap:14px;align-items:flex-start}
+  .svc .ic{flex:0 0 46px;width:46px;height:46px;border-radius:12px;background:#2a2115;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center}
+  .svc h3{font-size:18px;margin-bottom:3px}
+  .svc p{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:13.5px;color:var(--mut);line-height:1.5}
+  .price{margin-left:auto;font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:12px;color:var(--gold2);border:1px dashed var(--gold);border-radius:999px;padding:4px 10px;white-space:nowrap}
+
+  /* gallery tiles — CSS art, no photos */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .tile{border-radius:14px;border:1px solid var(--line);height:150px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:12px}
+  .tile span{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;position:relative;z-index:2}
+  .t1{background:linear-gradient(150deg,#3d2c12,#171008 70%)}
+  .t2{background:linear-gradient(150deg,#40231a,#150c08 70%)}
+  .t3{background:linear-gradient(150deg,#2b2118,#0f0c09 70%)}
+  .t4{background:linear-gradient(150deg,#4a3512,#191007 70%)}
+  .t5{background:linear-gradient(150deg,#33241a,#120d09 70%)}
+  .t6{background:linear-gradient(150deg,#57431a,#171106 70%)}
+  .tile svg{position:absolute;right:-8px;top:-8px;opacity:.30;width:110px;height:110px}
+  .chair-note{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:13px;color:var(--mut);line-height:1.55;margin-top:6px}
+  .chair-note b{color:var(--cream)}
+
+  /* booking form */
+  label{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);display:block;margin:14px 0 6px}
+  input,select,textarea{width:100%;background:#120e0a;border:1px solid var(--line);border-radius:10px;color:var(--cream);
+    font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:16px;padding:13px 12px}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+  .submit{width:100%;margin-top:20px}
+  .ok{display:none;margin-top:16px;background:#1d2b12;border:1px solid #5d8a2f;color:#cfe8a8;border-radius:10px;padding:14px;
+    font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:14px;line-height:1.5}
+  .fineprint{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:11.5px;color:#6f6455;margin-top:12px;line-height:1.5}
+
+  /* visit */
+  .visit-row{display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:15px;line-height:1.55}
+  .visit-row .ic{flex:0 0 40px;width:40px;height:40px;border-radius:10px;background:#2a2115;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center}
+  .mapbox{height:170px;border-radius:14px;border:1px solid var(--line);position:relative;overflow:hidden;
+    background:linear-gradient(0deg,transparent 49%,rgba(212,164,55,.16) 49%,rgba(212,164,55,.16) 51%,transparent 51%),
+               linear-gradient(90deg,transparent 49%,rgba(212,164,55,.16) 49%,rgba(212,164,55,.16) 51%,transparent 51%),
+               repeating-linear-gradient(0deg,#191410 0 34px,#14100c 34px 35px),
+               repeating-linear-gradient(90deg,#191410 0 34px,#14100c 34px 35px),#14100c}
+  .pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-100%);text-align:center}
+  .pin small{display:block;font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:11px;color:var(--gold2);margin-top:2px;letter-spacing:.05em}
+
+  /* ---------- TAB RAIL ---------- */
+  .rail{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(14,11,8,.97);border-top:1px solid var(--gold);
+    display:flex;padding:8px 4px calc(8px + env(safe-area-inset-bottom))}
+  .tab{flex:1;background:none;border:0;color:var(--mut);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;font-size:10.5px;
+    letter-spacing:.08em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 0;cursor:pointer}
+  .tab svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .tab.on{color:var(--gold2)}
+  .tab.on svg{filter:drop-shadow(0 0 6px rgba(212,164,55,.55))}
+</style>
+</head>
+<body>
+
+<!-- ============ HOME ============ -->
+<section class="panel on" id="p-home">
+  <div class="hero" style="margin:-26px -20px 22px">
+    <svg class="crest" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#d4a437" stroke-width="2.5"/>
+      <circle cx="50" cy="50" r="39" fill="none" stroke="#d4a437" stroke-width="1"/>
+      <path d="M32 66 L46 30 L52 44 L60 26 L68 66 Z" fill="#d4a437"/>
+      <rect x="30" y="70" width="40" height="4" fill="#d4a437"/>
+    </svg>
+    <div class="kicker">Est. Orlando · E Colonial Dr</div>
+    <h1>Divine<span class="thin">Barbershop</span></h1>
+    <p class="tag">Sharp cuts. Booked solid. Now bookable on our own site.</p>
+    <div class="badge"><span class="stars">★★★★★</span><span><b>5.0</b> · 1,594 reviews on Booksy</span></div>
+    <div class="cta-row">
+      <button class="btn btn-gold" data-go="book">Book a Chair</button>
+      <button class="btn btn-ghost" data-go="services">See Services</button>
+    </div>
+    <div class="demo-note">Concept preview — built for Divine Barbershop</div>
+  </div>
+
+  <div class="card">
+    <h2 style="font-size:21px">Fifteen hundred five-star bookings. <span class="g">One home of our own.</span></h2>
+    <p class="chair-note" style="margin-top:8px">Every one of those reviews was earned in these chairs. This site is where they live now — our name, our booking, our customers. Walk-ins welcome, appointments preferred.</p>
+  </div>
+  <div class="card svc">
+    <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 8.5 L20 20M8.5 15.5 L20 4"/></svg></div>
+    <div><h3>Book in 30 seconds</h3><p>Pick your service, pick your time, done — no app download, no middleman taking a cut of the relationship.</p></div>
+  </div>
+  <div class="card svc">
+    <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9.3l-4 4 1 5.7-5-2.8-5 2.8 1-5.7-4-4 5.5-.8z"/></svg></div>
+    <div><h3>Rated 5.0 by the city</h3><p>1,594 verified booking reviews at a perfect five stars — the reputation is already built. This page just puts it where Google can find it.</p></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="panel" id="p-services">
+  <h2>Services <span class="g">&amp; Chairs</span></h2>
+  <p class="sub">The full menu, bookable right here. Final pricing confirmed in the shop — call or book for today's rates.</p>
+
+  <div class="card svc"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 8.5 L20 20M8.5 15.5 L20 4"/></svg></div>
+    <div><h3>Signature Haircut</h3><p>Consultation, precision cut, styled finish.</p></div><span class="price">Call for pricing</span></div>
+
+  <div class="card svc"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 C4 12 9 5 20 4 C19 15 12 20 4 20Z"/><path d="M4 20 C7 14 11 10 16 7"/></svg></div>
+    <div><h3>Skin Fade / Taper</h3><p>High, mid, or low — blended clean, razor-finished edges.</p></div><span class="price">Call for pricing</span></div>
+
+  <div class="card svc"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 C7 20 17 20 21 17 L19 8 C14 11 10 11 5 8 Z"/><path d="M8 21 h8"/></svg></div>
+    <div><h3>Beard Sculpt &amp; Hot Towel</h3><p>Shape, line-up, hot towel finish and beard care.</p></div><span class="price">Call for pricing</span></div>
+
+  <div class="card svc"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 h12 l-2 7 H8 Z"/><path d="M9 14 h6 M12 10 v11"/></svg></div>
+    <div><h3>Cut + Beard Combo</h3><p>The full service — haircut and beard work in one chair session.</p></div><span class="price">Call for pricing</span></div>
+
+  <div class="card svc"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 a8 8 0 1 1 2.3 5.6"/><path d="M4 21 v-4 h4"/></svg></div>
+    <div><h3>Line-Up / Edge-Up</h3><p>Quick cleanup between cuts — hairline, neck, and edges sharpened.</p></div><span class="price">Call for pricing</span></div>
+
+  <div class="card svc"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21 c1.5-4 5-5.5 8-5.5 s6.5 1.5 8 5.5"/></svg></div>
+    <div><h3>Kids Cuts</h3><p>Patient, clean cuts for young clients — book the chair, skip the wait.</p></div><span class="price">Call for pricing</span></div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="panel" id="p-gallery">
+  <h2>The <span class="g">Craft</span></h2>
+  <p class="sub">The work that built a 5.0 rating across 1,594 bookings. (Preview tiles — the live site carries the shop's real portfolio.)</p>
+  <div class="grid">
+    <div class="tile t1"><svg viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 8.5 L20 20M8.5 15.5 L20 4"/></svg><span>Precision Fades</span></div>
+    <div class="tile t2"><svg viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 C7 20 17 20 21 17 L19 8 C14 11 10 11 5 8 Z"/></svg><span>Beard Work</span></div>
+    <div class="tile t3"><svg viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9.3l-4 4 1 5.7-5-2.8-5 2.8 1-5.7-4-4 5.5-.8z"/></svg><span>Designs &amp; Parts</span></div>
+    <div class="tile t4"><svg viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.4" stroke-linecap="round"><path d="M4 20 C4 12 9 5 20 4 C19 15 12 20 4 20Z"/></svg><span>Clean Tapers</span></div>
+    <div class="tile t5"><svg viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21 c1.5-4 5-5.5 8-5.5 s6.5 1.5 8 5.5"/></svg><span>Kids Welcome</span></div>
+    <div class="tile t6"><svg viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 66 L46 30 L52 44 L60 26 L68 66 Z" transform="scale(0.24)"/></svg><span>The Divine Standard</span></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <p class="chair-note"><b>Every chair, one standard.</b> A multi-chair studio running on craft and repeat clients — this gallery is where new customers see the work before they ever sit down.</p>
+  </div>
+</section>
+
+<!-- ============ BOOK ============ -->
+<section class="panel" id="p-book">
+  <h2>Book <span class="g">Your Chair</span></h2>
+  <p class="sub">Right here, on our own site — the booking and the customer relationship stay with Divine, not a rental page.</p>
+  <div class="card">
+    <form id="bookForm">
+      <label for="bk-name">Your name</label>
+      <input id="bk-name" type="text" placeholder="Full name" autocomplete="name">
+      <label for="bk-svc">Service</label>
+      <select id="bk-svc">
+        <option>Signature Haircut</option><option>Skin Fade / Taper</option>
+        <option>Beard Sculpt &amp; Hot Towel</option><option>Cut + Beard Combo</option>
+        <option>Line-Up / Edge-Up</option><option>Kids Cut</option>
+      </select>
+      <label for="bk-when">Preferred day &amp; time</label>
+      <input id="bk-when" type="text" placeholder="e.g. Saturday, 11 AM">
+      <label for="bk-phone">Mobile number</label>
+      <input id="bk-phone" type="tel" placeholder="For your confirmation text" autocomplete="tel">
+      <button class="btn btn-gold submit" type="submit">Request My Chair</button>
+      <div class="ok" id="bookOk">✓ Request received — this is exactly how it works on the live site: the shop confirms by text and the booking lands on Divine's own calendar.</div>
+      <p class="fineprint">Preview form — submissions are not sent anywhere in this concept build.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="panel" id="p-visit">
+  <h2>Visit <span class="g">Us</span></h2>
+  <p class="sub">Find the chairs.</p>
+  <div class="mapbox">
+    <div class="pin">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="#d4a437" stroke="#0c0a08" stroke-width="1"><path d="M12 22 C12 22 5 15.5 5 9.5 A7 7 0 1 1 19 9.5 C19 15.5 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.6" fill="#0c0a08"/></svg>
+      <small>DIVINE BARBERSHOP</small>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="visit-row">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.8"><path d="M12 22 C12 22 5 15.5 5 9.5 A7 7 0 1 1 19 9.5 C19 15.5 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.6"/></svg></div>
+      <div><b>Divine Barbershop</b><br>9318 E Colonial Dr, Unit A8<br>Orlando, FL 32817</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="visit-row">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 v5 l3.5 2"/></svg></div>
+      <div><b>Hours</b><br>Mon–Sat · 9 AM – 7 PM<br><span style="color:var(--mut)">Walk-ins welcome · Appointments preferred</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="visit-row">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f2cd6b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9.3l-4 4 1 5.7-5-2.8-5 2.8 1-5.7-4-4 5.5-.8z"/></svg></div>
+      <div><b>5.0 ★ · 1,594 reviews</b><br><span style="color:var(--mut)">Verified booking reviews on Booksy — now showcased on our own site.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAB RAIL ============ -->
+<nav class="rail" role="tablist">
+  <button class="tab on" data-p="home"><svg viewBox="0 0 24 24"><path d="M3 11 L12 4 L21 11"/><path d="M6 10 v10 h12 V10"/></svg>Home</button>
+  <button class="tab" data-p="services"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 8.5 L20 20M8.5 15.5 L20 4"/></svg>Services</button>
+  <button class="tab" data-p="gallery"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M3 17 L9 12 L14 16 L17 13 L21 17"/></svg>Gallery</button>
+  <button class="tab" data-p="book"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10 h18 M8 3 v4 M16 3 v4 M9 15 l2 2 4-4"/></svg>Book</button>
+  <button class="tab" data-p="visit"><svg viewBox="0 0 24 24"><path d="M12 22 C12 22 5 15.5 5 9.5 A7 7 0 1 1 19 9.5 C19 15.5 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.6"/></svg>Visit</button>
+</nav>
+
+<script>
+  const tabs=document.querySelectorAll('.tab'), panels=document.querySelectorAll('.panel');
+  function go(id){
+    tabs.forEach(t=>t.classList.toggle('on',t.dataset.p===id));
+    panels.forEach(p=>p.classList.toggle('on',p.id==='p-'+id));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>go(t.dataset.p)));
+  document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+  document.getElementById('bookForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('bookOk').style.display='block';});
+</script>
+</body>
+</html>
